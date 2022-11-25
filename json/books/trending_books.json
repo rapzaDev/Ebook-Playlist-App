@@ -1,0 +1,37 @@
+[
+    {
+        "img": "images/books/trending/newbook2.png",
+        "rating": 4.5,
+        "title": "HOW TO BE FINE",
+        "text": "Jolenta Greenberg",
+        "category": "self-help"
+    },
+    {
+        "img": "images/books/trending/newbook4.png",
+        "rating": 4.5,
+        "title": "THE OBSTACLE IS THE WAY",
+        "text": "Ryan Holiday",
+        "category": "self-help"
+    },
+    {
+        "img": "images/books/trending/popularbook2.png",
+        "rating": 5,
+        "title": "THE LORD OF THE RINGS",
+        "text": "J.R.R Tolkien",
+        "category": "adventure"
+    },
+    {
+        "img": "images/books/trending/popularbook3.png",
+        "rating": 5,
+        "title": "HARRY POTTER",
+        "text": "J.K Rowling",
+        "category": "adventure"
+    },
+    {
+        "img": "images/books/trending/popularbook4.png",
+        "rating": 4.8,
+        "title": "FAIR TALE",
+        "text": "Stephen King",
+        "category": "novel"
+    }
+]

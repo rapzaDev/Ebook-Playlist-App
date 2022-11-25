@@ -1,9 +1,8 @@
-// ignore_for_file: unnecessary_const, sort_child_properties_last
-
+import 'package:audioplayer/components/NewBooks/new_books.dart';
+import 'package:flutter/material.dart';
 import 'dart:convert';
 
 import 'package:audioplayer/components/AppTab/my_tabs.dart';
-import 'package:flutter/material.dart';
 import '../../colors//themes/light_theme.dart' as light_colors;
 
 class HomePage extends StatefulWidget {
@@ -16,14 +15,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   List popularBooks = [];
-  List books = [];
+  List newBooks = [];
+  List trendingBooks = [];
 
   ScrollController? _scrollController;
   TabController? _tabController;
 
   getPopularBooksData() async {
     await DefaultAssetBundle.of(context)
-        .loadString("json/popularBooks.json")
+        .loadString("json/books/popular_books.json")
         .then(
       (value) {
         setState(
@@ -35,12 +35,22 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  getBooksData() async {
+  getNewBooksData() async {
     await DefaultAssetBundle.of(context)
-        .loadString("json/books.json")
+        .loadString("json/books/new_books.json")
         .then((value) {
       setState(() {
-        books = jsonDecode(value);
+        newBooks = jsonDecode(value);
+      });
+    });
+  }
+
+  getTrendingBooksData() async {
+    await DefaultAssetBundle.of(context)
+        .loadString("json/books/trending_books.json")
+        .then((value) {
+      setState(() {
+        trendingBooks = jsonDecode(value);
       });
     });
   }
@@ -51,7 +61,8 @@ class _HomePageState extends State<HomePage>
     _tabController = TabController(length: 3, vsync: this);
     _scrollController = ScrollController();
     getPopularBooksData();
-    getBooksData();
+    getNewBooksData();
+    getTrendingBooksData();
   }
 
   @override
@@ -192,132 +203,9 @@ class _HomePageState extends State<HomePage>
                   body: TabBarView(
                     controller: _tabController,
                     children: [
-                      ListView.builder(
-                        itemCount: ((books.isEmpty) ? 0 : books.length),
-                        itemBuilder: (_, i) {
-                          return Container(
-                            margin: const EdgeInsets.only(
-                              left: 20,
-                              right: 20,
-                              top: 10,
-                              bottom: 10,
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: light_colors.tabBarViewColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 2,
-                                    offset: const Offset(0, 0),
-                                    color: Colors.grey.withOpacity(0.2),
-                                  ),
-                                ],
-                              ),
-                              child: Container(
-                                padding: const EdgeInsets.all(8),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 120,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        image: DecorationImage(
-                                          image: AssetImage(books[i]["img"]),
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            const Icon(
-                                              Icons.star,
-                                              size: 24,
-                                              color: light_colors.starColor,
-                                            ),
-                                            const SizedBox(width: 5),
-                                            Text(
-                                              (books[i]["rating"]).toString(),
-                                              style: const TextStyle(
-                                                  color:
-                                                      light_colors.starColor),
-                                            ),
-                                          ],
-                                        ),
-                                        Text(
-                                          books[i]["title"],
-                                          style: const TextStyle(
-                                            fontSize: 15,
-                                            fontFamily: "Avenir",
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        Text(
-                                          books[i]["text"],
-                                          style: const TextStyle(
-                                            fontSize: 15,
-                                            fontFamily: "Avenir",
-                                            color: light_colors.subTitleText,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        Container(
-                                          height: 15,
-                                          width: 60,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            color: light_colors.loveColor,
-                                          ),
-                                          child: Text(
-                                            books[i]["category"],
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              fontFamily: "Avenir",
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                      const Material(
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.grey,
-                          ),
-                          title: Text("Content"),
-                        ),
-                      ),
-                      const Material(
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.grey,
-                          ),
-                          title: Text("Content"),
-                        ),
-                      ),
-                      const Material(
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.grey,
-                          ),
-                          title: Text("Content"),
-                        ),
-                      ),
+                      HomeBooks(books: newBooks),
+                      HomeBooks(books: popularBooks),
+                      HomeBooks(books: trendingBooks),
                     ],
                   ),
                 ),

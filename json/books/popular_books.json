@@ -1,0 +1,37 @@
+[
+    {
+        "img": "images/books/popular/popularbook1.png",
+        "rating": 4.7,
+        "title": "REMINDERS OF HIM",
+        "text": "Colleen Hoover",
+        "category": "novel"
+    },
+    {
+        "img": "images/books/popular/popularbook2.png",
+        "rating": 5,
+        "title": "THE LORD OF THE RINGS",
+        "text": "J.R.R Tolkien",
+        "category": "adventure"
+    },
+    {
+        "img": "images/books/popular/popularbook3.png",
+        "rating": 5,
+        "title": "HARRY POTTER",
+        "text": "J.K Rowling",
+        "category": "adventure"
+    },
+    {
+        "img": "images/books/popular/popularbook4.png",
+        "rating": 4.8,
+        "title": "FAIR TALE",
+        "text": "Stephen King",
+        "category": "novel"
+    },
+    {
+        "img": "images/books/popular/popularbook5.png",
+        "rating": 4.5,
+        "title": "THE GODFATHER",
+        "text": "Mario Puzo",
+        "category": "action"
+    }
+]
