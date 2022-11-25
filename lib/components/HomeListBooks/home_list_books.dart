@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../colors//themes/light_theme.dart' as light_colors;
+import '../../colors/themes/light_theme.dart' as light_colors;
 
 class HomeBooks extends StatelessWidget {
   final List books;

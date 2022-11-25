@@ -1,9 +1,9 @@
-import 'package:audioplayer/components/NewBooks/new_books.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import '../../colors/themes/light_theme.dart' as light_theme;
 
+import 'package:audioplayer/components/HomeListBooks/home_list_books.dart';
 import 'package:audioplayer/components/AppTab/my_tabs.dart';
-import '../../colors//themes/light_theme.dart' as light_colors;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -68,13 +68,13 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: light_colors.background,
+      color: light_theme.background,
       child: SafeArea(
         child: Scaffold(
           body: Column(
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.only(left: 20, right: 20),
+                margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage>
                     return [
                       SliverAppBar(
                         pinned: true,
-                        backgroundColor: light_colors.sliverBackground,
+                        backgroundColor: light_theme.sliverBackground,
                         bottom: PreferredSize(
                           preferredSize: const Size.fromHeight(50),
                           child: Container(
@@ -182,15 +182,15 @@ class _HomePageState extends State<HomePage>
                               ),
                               tabs: const [
                                 AppTab(
-                                  color: light_colors.menu1Color,
+                                  color: light_theme.menu1Color,
                                   text: "New",
                                 ),
                                 AppTab(
-                                  color: light_colors.menu2Color,
+                                  color: light_theme.menu2Color,
                                   text: "Popular",
                                 ),
                                 AppTab(
-                                  color: light_colors.menu3Color,
+                                  color: light_theme.menu3Color,
                                   text: "Trending",
                                 ),
                               ],

@@ -15,5 +15,6 @@ const Color subTitleText = Color(0xffc5c4ca);
 
 const Color loveColor = Color(0xff00ace6);
 
-const Color audioBlueBackground = Color(0xffeeeffa);
+const Color audioBluishBackground = Color(0xffdee7fa);
+const Color audioBlueBackground = Color(0xff04abe7);
 const Color audioGrayBackground = Color(0xfff2f2f2);
