@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Music App',
       debugShowCheckedModeBanner: false,
-      home: DetailAudio(),
+      home: HomePage(),
     );
   }
 }
