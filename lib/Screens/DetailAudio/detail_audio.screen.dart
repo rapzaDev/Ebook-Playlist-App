@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import '../../colors/themes/light_theme.dart' as light_theme;
 
 class DetailAudio extends StatefulWidget {
-  const DetailAudio({super.key});
+  final List booksData;
+  final int index;
+  const DetailAudio({super.key, required this.booksData, required this.index});
 
   @override
   State<DetailAudio> createState() => _DetailAudioState();
@@ -49,7 +51,10 @@ class _DetailAudioState extends State<DetailAudio> {
                   icon: const Icon(
                     Icons.arrow_back_ios,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    advancedPlayer!.stop();
+                    Navigator.of(context).pop();
+                  },
                 ),
                 actions: [
                   IconButton(
@@ -76,19 +81,21 @@ class _DetailAudioState extends State<DetailAudio> {
                     SizedBox(
                       height: screenHeight * 0.1,
                     ),
-                    const Text(
-                      "THE WATER CURE",
-                      style: TextStyle(
+                    Text(
+                      widget.booksData[widget.index]["title"],
+                      style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Avenir",
                       ),
                     ),
-                    const Text(
-                      "Martin Hyatt",
-                      style: TextStyle(fontSize: 20),
+                    Text(
+                      widget.booksData[widget.index]["text"],
+                      style: const TextStyle(fontSize: 20),
                     ),
-                    AudioFile(advancedPlayer: advancedPlayer!),
+                    AudioFile(
+                        advancedPlayer: advancedPlayer!,
+                        audioPath: widget.booksData[widget.index]["audio"]),
                   ],
                 ),
               ),
@@ -111,8 +118,9 @@ class _DetailAudioState extends State<DetailAudio> {
                       // borderRadius: BorderRadius.circular(20),
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.white, width: 5),
-                      image: const DecorationImage(
-                        image: AssetImage("images/books/new/newbook1.png"),
+                      image: DecorationImage(
+                        image:
+                            AssetImage(widget.booksData[widget.index]["img"]),
                         fit: BoxFit.cover,
                       ),
                     ),

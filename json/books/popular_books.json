@@ -4,34 +4,39 @@
         "rating": 4.7,
         "title": "REMINDERS OF HIM",
         "text": "Colleen Hoover",
-        "category": "novel"
+        "category": "novel",
+        "audio": "https://audio_path"
     },
     {
         "img": "images/books/popular/popularbook2.png",
         "rating": 5,
         "title": "THE LORD OF THE RINGS",
         "text": "J.R.R Tolkien",
-        "category": "adventure"
+        "category": "adventure",
+        "audio": "https://audio_path"
     },
     {
         "img": "images/books/popular/popularbook3.png",
         "rating": 5,
         "title": "HARRY POTTER",
         "text": "J.K Rowling",
-        "category": "adventure"
+        "category": "adventure",
+        "audio": "https://audio_path"
     },
     {
         "img": "images/books/popular/popularbook4.png",
         "rating": 4.8,
         "title": "FAIR TALE",
         "text": "Stephen King",
-        "category": "novel"
+        "category": "novel",
+        "audio": "https://audio_path"
     },
     {
         "img": "images/books/popular/popularbook5.png",
         "rating": 4.5,
         "title": "THE GODFATHER",
         "text": "Mario Puzo",
-        "category": "action"
+        "category": "action",
+        "audio": "https://audio_path"
     }
 ]
